@@ -1,0 +1,46 @@
+$primary: black;
+
+// Baser les "color" et "background-color" de chaque niveau de titre par rapport a la couleur $primary
+// Il faudra bien sur que les couleurs utilisees soient lisibles/differentes.
+
+@function get-color($color, $amount) {
+  @if lightness($color) == lightness(darken($color, $amount)) {
+    @return lighten($color, $amount);
+  } @else {
+    @return darken($color, $amount);
+  }
+}
+
+@mixin colorize($originColor, $amount: null) {
+  $color: null;
+
+  @if $amount == null {
+    $color: $originColor;
+    $amount: 30;
+  } @else {
+    $color: get-color($originColor, $amount);
+  }
+
+  $bg: get-color($color, $amount);
+
+  color: $color;
+  background-color: $bg;
+}
+
+h1 {
+  // color: $primary;
+  // background-color: lighten($primary, 30);
+  @include colorize($primary);
+}
+
+h2 {
+  // color: darken($primary, 30);
+  // background-color: $primary;
+  @include colorize($primary, 30);
+}
+
+h3 {
+  // color: darken($color: $primary, $amount: 50);
+  // background-color: darken($color: $primary, $amount: 30);
+  @include colorize($primary, 50);
+}

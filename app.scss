@@ -1,8 +1,30 @@
-* {
-    color: aliceblue;
+
+// @param {number} size Font-size whitout unit (example: 5).
+@mixin border($size) {
+    font-size: $size * 1em;
+
+    @if $size >= 2 {
+        border: 1px dashed black;
+    }
 }
 
-h1 {
-    color: blue;
-}
+aside {
+    p {
+        border: 1px solid red;
+        border-radius: 15px;
+    }
 
+    table {
+        th {
+            font-weight: bold;
+            color: blue;
+            @include border(2);
+        }
+
+        td {
+            @include border(1.2);
+            text-transform: capitalize;
+            color: gray;
+        }
+    }
+}
