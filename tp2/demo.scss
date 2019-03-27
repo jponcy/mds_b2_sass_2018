@@ -1,0 +1,52 @@
+@import 'style';
+@import 'vars';
+
+%red {
+  color: red;
+  border: 1px solid red;
+}
+
+.error {
+  @extend %red;
+  background-color: white;
+}
+
+input {
+  &.error {
+    @extend %red;
+    background-color: blue;
+  }
+
+  &:hover {
+    background-color: cyan;
+  }
+}
+
+// Héritage
+
+// @mixin color() {
+//   color: green;
+//   background-color: lime;
+// }
+
+// .error {
+//   color: red;
+//   border: 1px solid red;
+//   background-color: orange;
+// }
+
+// .txt.txt-danger {
+//   @extend .error;
+//   font-size: 2em;
+// }
+
+// @for $i from 1 through 20 {
+//   .color-#{$i} {
+//     @include color();
+
+//     @if $i == 2 {
+//       font-size: 2em;
+//     }
+//   }
+// }
+
