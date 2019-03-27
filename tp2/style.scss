@@ -1,38 +1,49 @@
-h1 {
-  color: green;
+$primary: #BADA55;
+$second: lime;
+$third: green;
+
+@mixin border-radius($size) {
+  -webkit-border-radius: $size;
+     -moz-border-radius: $size;
+      -ms-border-radius: $size;
+          border-radius: $size;
+}
+
+@mixin title($color, $size) {
+  color: $color;
   text-align: center;
-  font-size: 3em;
+  font-size: $size;
+}
+
+h1 {
+  @include title($primary, 3em);
 }
 
 h2 {
-  color: lime;
-  text-align: center;
-  font-size: 2em;
+  @include title($second, 2em);
 }
 
 .container {
   width: 90%;
-  border: 1px solid lime;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  border-radius: 15px;
+  border: 1px solid $second;
+  @include border-radius(15px);
   margin: auto;
   padding: 0 10px 5px 10px;
 }
 
 ul {
   list-style: square;
+
+  li {
+    font-style: italic;
+    color: $primary;
+  }
 }
 
-li {
-  font-style: italic;
-  color: #BADA55;
-}
 
 th {
   font-size: 1.5em;
-  color: #BADA55;
+  color: $primary;
 }
 
 td:nth-child(3) {
@@ -40,7 +51,7 @@ td:nth-child(3) {
 }
 
 th, td {
-  border: 1px solid #BADA55;
+  border: 1px solid $primary;
   padding: 5px;
 }
 
