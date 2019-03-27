@@ -1,0 +1,54 @@
+@import 'vars';
+@import 'partials';
+
+
+@for $i from 1 through 2 {
+  h#{$i} {
+    @if $i % 2 == 0 {
+      color: $primary;
+    } @else {
+      color: $second;
+    }
+    text-align: center;
+    font-size: 2 + ($i % 2);
+  }
+}
+
+.container {
+  width: 90%;
+  border: 1px solid $second;
+  @include border-radius(15px);
+  margin: auto;
+  padding: 0 10px 5px 10px;
+}
+
+ul {
+  list-style: square;
+
+  li {
+    font-style: italic;
+    color: $primary;
+  }
+}
+
+
+th {
+  font-size: 1.5em;
+  color: $primary;
+}
+
+td:nth-child(3) {
+  text-align: right;
+}
+
+th, td {
+  border: 1px solid $primary;
+  padding: 5px;
+}
+
+@each $animal in (snake, dog, cat) {
+  .img-#{$animal} {
+    background-image: url('images/animals/#{$animal}');
+  }
+}
+
