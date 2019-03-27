@@ -1,0 +1,46 @@
+h1 {
+  color: green;
+  text-align: center;
+  font-size: 3em;
+}
+
+h2 {
+  color: lime;
+  text-align: center;
+  font-size: 2em;
+}
+
+.container {
+  width: 90%;
+  border: 1px solid lime;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  border-radius: 15px;
+  margin: auto;
+  padding: 0 10px 5px 10px;
+}
+
+ul {
+  list-style: square;
+}
+
+li {
+  font-style: italic;
+  color: #BADA55;
+}
+
+th {
+  font-size: 1.5em;
+  color: #BADA55;
+}
+
+td:nth-child(3) {
+  text-align: right;
+}
+
+th, td {
+  border: 1px solid #BADA55;
+  padding: 5px;
+}
+
