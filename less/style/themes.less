@@ -1,0 +1,14 @@
+#theme(light) {
+  @primary: black;
+  @bg-primary: beige;
+}
+
+#theme(dark) {
+  @primary: white;
+  @bg-primary: black;
+}
+
+#theme(@color) when(default()) {
+  @primary: red;
+  @bg-primary: yellow;
+}

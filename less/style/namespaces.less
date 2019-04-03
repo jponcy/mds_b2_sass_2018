@@ -1,0 +1,21 @@
+@import 'themes';
+
+#theme('toto');
+
+#namespace() {
+  .color {
+    color: @primary;
+    background-color: @bg-primary;
+  }
+
+  .border(@width: 1px; @color: @primary; @shape: solid) {
+    border: @arguments;
+  }
+}
+
+p {
+  #namespace .color;
+  #namespace.color;
+  #namespace>.color;
+  #namespace > .color;
+}

@@ -1,0 +1,42 @@
+@import '_mixins';
+@import 'themes';
+
+#theme(light);
+
+.grid(@nb; @i) when(default()) {
+  .p-@{nb}-@{i} {
+    padding: (@nb * 1px) (@i * 1px);
+  }
+
+  .grid(@nb, @i - 1);
+}
+.grid(@nb; 0) {
+}
+
+.fact(@nb) when (@nb > 1) {
+  // @result: @nb * .fact(@nb - 1)[];
+  output: @nb * .fact(@nb - 1)[];
+}
+.fact(1) {
+  // @result: 1;
+  output: 1;
+}
+.fact(@nb) when (default()) {
+  output: @non;
+}
+
+.class-fact(@nb) {
+  .fact-@{nb} {
+    @fact: .fact(@nb)[];
+    content: 'fact(@{nb}) = @{fact}';
+  }
+}
+
+.class-fact(4);
+.class-fact(1);
+
+div {
+  color: @primary;
+  background-color: @bg-primary;
+  .border-radius(15px);
+}

@@ -1,0 +1,20 @@
+.error() { // Heritage ignore avec des mixins.
+  color: blue;
+}
+
+.err { // Possibilite de l'inclure dans une classe avant heritage.
+  .error();
+}
+
+.err2 { // Pas de groupement si plusieurs classes.
+  .error();
+}
+
+.txt-danger:extend(.err) {
+  font-style: italic;
+}
+
+.btn-error:extend(.err2) {
+  background-color: aquamarine;
+}
+

@@ -1,0 +1,6 @@
+{
+  "watchFolder": "style",
+  "outputFolder": "stylesheets",
+  "sourceMap": false,
+  "enableJs": false
+}
