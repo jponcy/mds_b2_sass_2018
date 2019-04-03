@@ -1,0 +1,43 @@
+@primary: black;
+
+// Baser les "color" et "background-color" de chaque niveau de titre par rapport a la couleur @primary
+// Il faudra bien sur que les couleurs utilisees soient lisibles/differentes.
+
+.get-color(@color, @amount)
+    when(lightness(@color) = lightness(darken(@color, @amount))) {
+  output: lighten(@color, @amount);
+}
+.get-color(@color, @amount) when(default()) {
+  output: darken(@color, @amount);
+}
+
+
+.set-colors(@color; @amount) {
+  color: @color;
+  background-color: .get-color(@color; @amount)[];
+}
+.colorize(@color; @amount) {
+  .set-colors(.get-color(@color; @amount)[]; @amount);
+}
+.colorize(@color) {
+  .set-colors(@color; 30);
+}
+
+
+h1 {
+  // color: @primary;
+  // background-color: lighten(@primary, 30);
+  .colorize(@primary);
+}
+
+h2 {
+  // color: darken(@primary, 30);
+  // background-color: @primary;
+  .colorize(@primary, 30);
+}
+
+h3 {
+  // color: darken($color: @primary, $amount: 50);
+  // background-color: darken($color: @primary, $amount: 30);
+  .colorize(@primary, 50);
+}

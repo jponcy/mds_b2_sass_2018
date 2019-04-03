@@ -1,0 +1,69 @@
+@import '_vars';
+
+.border-radius(@size) {
+  -webkit-border-radius: @size;
+     -moz-border-radius: @size;
+      -ms-border-radius: @size;
+          border-radius: @size;
+}
+
+#h() {
+  .choice-color(@i) when (mod(@i, 2) = 0) {
+    output: @primary;
+  }
+  .choice-color(@i) when (default()) {
+    output: @second;
+  }
+
+  .make(@i) when (@i < 3) {
+    h@{i} {
+      text-align: center;
+      font-size: 2 + mod(@i, 2);
+      color: .choice-color(@i)[];
+    }
+
+    .make(@i + 1);
+  }
+  .make(3) {}
+  .make() {
+    .make(1);
+  }
+}
+
+#h();
+.make();
+
+
+
+.container {
+  width: 90%;
+  border: 1px solid @second;
+  .border-radius(15px);
+  margin: auto;
+  padding: 0 10px 5px 10px;
+}
+
+ul {
+  list-style: square;
+
+  li {
+    font-style: italic;
+    color: @primary;
+  }
+}
+
+
+th {
+  font-size: 1.5em;
+  color: @primary;
+}
+
+td:nth-child(3) {
+  text-align: right;
+}
+
+th, td {
+  border: 1px solid @primary;
+  padding: 5px;
+}
+
